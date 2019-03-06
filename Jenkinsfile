@@ -2,6 +2,11 @@
 pipeline {
     agent any
     stages {
+        stage('SCM') {
+            steps {
+                git url: 'https://github.com/juwujun/simple-java-maven-app.git'
+            }
+        }
         stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
