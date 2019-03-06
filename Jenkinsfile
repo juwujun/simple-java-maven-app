@@ -7,20 +7,30 @@ pipeline {
                 git url: 'https://github.com/juwujun/simple-java-maven-app.git'
             }
         }
-        stage('build && SonarQube analysis') {
+        stage('Build') {
             steps {
-                withSonarQubeEnv('SonarQube') {
-                        sh 'mvn clean package sonar:sonar'
+                sh 'mvn -B -DskipTests clean package'
+            }
+             post {
+                always {
+                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                    }
+             }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
                 }
             }
         }
-        stage("Quality Gate") {
+        stage('analysis') {
             steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-                    // true = set pipeline to UNSTABLE, false = don't
-                    // Requires SonarQube Scanner for Jenkins 2.7+
-                    waitForQualityGate abortPipeline: true
+                withSonarQubeEnv('SonarQube') {
+                        sh 'mvn sonar:sonar'
                 }
             }
         }
