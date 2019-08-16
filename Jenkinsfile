@@ -41,5 +41,6 @@ pipeline {
             steps {
                 sh 'sh ./deliver.sh'
             }
+        }
     }
 }
