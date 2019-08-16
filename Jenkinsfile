@@ -15,11 +15,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'mvn test -Dversion=${BUILD_NUMBER}'
+                archiveArtifacts 'target/surefire-reports/*.xml'
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
+                    tapdTestReport frameType: 'JUnit', onlyNewModified: true, reportPath: 'target/surefire-reports/*.xml'
                 }
             }
         }
@@ -30,5 +31,15 @@ pipeline {
                 }
             }
         }
+        
+        stage('Package'){
+            steps{
+                nexusPublisher nexusInstanceId: 'nexus199', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/my-app-${BUILD_NUMBER}.jar']], mavenCoordinate: [artifactId: 'my-app', groupId: 'william', packaging: 'jar', version: '${BUILD_NUMBER}']]]
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh 'sh ./deliver.sh'
+            }
     }
 }
