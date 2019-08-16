@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -Dversion=${BUILD_NUMBER} -DskipTests clean package'
+                sh 'mvn -B -Dversion=3.0 -DskipTests clean package'
             }
         }
         stage('Test') {
