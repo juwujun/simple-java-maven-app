@@ -5,13 +5,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn -B -Dversion=${BUILD_NUMBER} -DskipTests clean package'
             }
-             post {
-                always {
-                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-                    }
-             }
         }
         stage('Test') {
             steps {
