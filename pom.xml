@@ -6,6 +6,7 @@
   <artifactId>my-app</artifactId>
   <packaging>jar</packaging>
   <name>my-app</name>
+  <version>2.0</version>
   <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
   <dependencies>
     <dependency>
