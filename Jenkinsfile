@@ -11,8 +11,10 @@ pipeline {
         }
         stage('Test') {
             steps {
+                withMaven(maven:'maven3'){
                 sh 'mvn test -Dversion=${BUILD_NUMBER}'
                 archiveArtifacts 'target/surefire-reports/*.xml'
+                }
             }
             post {
                 always {
@@ -22,8 +24,10 @@ pipeline {
         }
         stage('analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv('DevOpsSonarQube') {
+                    withMaven(maven:'maven3'){
                         sh 'mvn sonar:sonar'
+                    }
                 }
             }
         }
