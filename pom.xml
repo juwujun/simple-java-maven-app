@@ -37,9 +37,9 @@
   
   <repositories>
 		<repository>
-			<id>nexus</id>
-			<name>nexus</name>
-			<url>http://152.136.46.199:8081/nexus/content/groups/public/</url>
+			<id>nexustencent</id>
+			<name>Nexus tencent</name>
+			<url>http://mirrors.tencent.com/nexus/repository/maven-public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -52,7 +52,7 @@
 		<pluginRepository>
 			<id>nexus</id>
 			<name>nexus</name>
-			<url>http://152.136.46.199:8081/nexus/content/groups/public/</url>
+			<url>http://mirrors.tencent.com/nexus/repository/maven-public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
