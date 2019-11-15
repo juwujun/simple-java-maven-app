@@ -1,7 +1,8 @@
 
 pipeline {
     agent any
-    
+    def mvnHome = tool 'maven3'
+    env.PATH = "${mvnHome}/bin:${env.PATH}"
     stages {
         stage('Build') {
             steps {
