@@ -283,20 +283,6 @@ under the License.
           <layout>default</layout>
         </repository>
       </repositories>
-      
-      <pluginRepositories>  
-        <pluginRepository>  
-          <id>maven-net-cn</id>  
-          <name>Maven China Mirror</name>  
-          <url>http://maven.zhanglonghao.work:8081/nexus/content/groups/public</url>  
-          <releases>  
-            <enabled>true</enabled>  
-          </releases>  
-          <snapshots>  
-            <enabled>true</enabled>  
-          </snapshots>      
-        </pluginRepository>  
-      </pluginRepositories> 
   
     </profile>
   </profiles>
