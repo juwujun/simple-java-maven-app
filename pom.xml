@@ -61,6 +61,7 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+	<!--
 	<distributionManagement>
 		<repository>
 			<id>user-release</id>
@@ -75,5 +76,6 @@
 		</snapshotRepository>
 		
 	</distributionManagement>
+-->
 
 </project>
