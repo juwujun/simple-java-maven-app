@@ -6,30 +6,13 @@
   <profiles> 
     <profile> 
       <id>github</id>  
-      <repositories> 
-        <repository> 
-          <id>nexus</id>  
-          <url>http://mirrors.tencent.com/nexus/repository/maven-public/</url>  
-          <releases>
-            <enabled>true</enabled>
-          </releases>  
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots> 
-        </repository>  
-        <repository> 
-          <id>github</id>  
-          <name>GitHub OWNER Apache Maven Packages</name>  
-          <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url> 
-        </repository> 
-      </repositories> 
     </profile> 
   </profiles>  
   <servers> 
     <server> 
       <id>github</id>  
       <username>juwujun</username>  
-      <password>3acbb64837beb24d13480cc4db2a472ed24acbe5</password> 
+      <password>48775b21923d567cd7d257adb05403e89f3d2c23</password> 
     </server> 
   </servers> 
 </settings>
