@@ -120,13 +120,13 @@ under the License.
     <server>
       <id>release</id>
       <username>juwujun</username>
-      <password>48775b21923d567cd7d257adb05403e89f3d2c23</password>
+      <password>26fdcba84fb523457c38cb5d16b8132f480db5d2</password>
     </server>
     
     <server>
       <id>snapshots</id>
       <username>juwujun</username>
-      <password>48775b21923d567cd7d257adb05403e89f3d2c23</password>
+      <password>26fdcba84fb523457c38cb5d16b8132f480db5d2</password>
     </server>
 
     <!-- Another sample, using keys to authenticate.
