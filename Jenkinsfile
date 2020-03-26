@@ -34,7 +34,10 @@ pipeline {
         
         stage('Package'){
             steps{
-                nexusPublisher nexusInstanceId: 'DevOpsNexus', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/my-app-2.0.jar']], mavenCoordinate: [artifactId: 'my-app', groupId: 'william', packaging: 'jar', version: '${BUILD_NUMBER}']]]
+                withMaven(maven:'maven3'){
+                mvn deploy -Dregistry=https://maven.pkg.github.com/juwujun -Dtoken=3acbb64837beb24d13480cc4db2a472ed24acbe5
+                    }
+                //nexusPublisher nexusInstanceId: 'DevOpsNexus', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/my-app-2.0.jar']], mavenCoordinate: [artifactId: 'my-app', groupId: 'william', packaging: 'jar', version: '${BUILD_NUMBER}']]]
             }
         }
         stage('Deliver') {
