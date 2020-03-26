@@ -81,7 +81,7 @@
    <repository>
      <id>github</id>
      <name>GitHub OWNER Apache Maven Packages</name>
-     <url>https://maven.pkg.github.com/juwujun</url>
+     <url>https://maven.pkg.github.com/juwujun/simple-java-maven-app</url>
    </repository>
 </distributionManagement>
 
