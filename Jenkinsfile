@@ -40,10 +40,13 @@ pipeline {
                 //nexusPublisher nexusInstanceId: 'DevOpsNexus', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/my-app-2.0.jar']], mavenCoordinate: [artifactId: 'my-app', groupId: 'william', packaging: 'jar', version: '${BUILD_NUMBER}']]]
             }
         }
+        /*
         stage('Deliver') {
             steps {
                 sh 'sh ./deliver.sh'
             }
         }
+        
+        */
     }
 }
